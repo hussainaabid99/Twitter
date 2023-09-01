@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const tweetSchema = new mongoose.Schema({
+const tweetSchema = new mongoose.Schema({                                       //schema
           content: {
                     type: String,
                     required: true,
@@ -15,6 +15,10 @@ const tweetSchema = new mongoose.Schema({
                     }
           ]
 }, { timestamps: true });
+
+tweetSchema.virtual('contentWithEmail').get(function process() {                          //virtuals
+          return `${this.content} \nCreated by: ${this.userEmail}`;
+});
 
 const Tweet = mongoose.model('Tweet', tweetSchema);
 
