@@ -8,15 +8,8 @@ const tweetSchema = new mongoose.Schema({                                       
 
           },
 
-          hashtags: [
-                    {
-                              type: mongoose.Schema.Types.ObjectId,
-                              ref: 'Hashtag'
-                    }
-          ]
-
 }, { timestamps: true });
 
 
 const Tweet = mongoose.model('Tweet', tweetSchema);
-export default Tweet; 
+export default Tweet;     
